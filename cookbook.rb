@@ -2,7 +2,8 @@ begin
 
 INSERIR_RECEITA = 1	
 VISUALIZAR_RECEITAS = 2
-SAIR = 3
+BUSCAR_RECEITAS = 3
+SAIR = 4
 
 
 	def bem_vindo()
@@ -12,6 +13,7 @@ SAIR = 3
 	def menu()
 		puts "[#{INSERIR_RECEITA}] Cadastrar uma receita"
 		puts "[#{VISUALIZAR_RECEITAS}] Ver todas as receitas"
+		puts "[#{BUSCAR_RECEITAS}] Buscar Receitas"
 		puts "[#{SAIR}] Sair"
 
 		print "Escolha uma opção: " 
@@ -38,6 +40,13 @@ SAIR = 3
 			puts "Nenhuma receita ainda cadastrada"
 		end
 	end
+
+	def buscar_receitas(re)
+		puts "Digite o tipo de receita que busca"
+		busca = gets.chomp()
+		found = re.select { |value| value[:tipo] == busca }
+		puts found 
+	end
 	
 	bem_vindo()
 	receitas = []
@@ -48,6 +57,8 @@ SAIR = 3
 			receitas << inserir_receita()
 		elsif(opcao == VISUALIZAR_RECEITAS)
 			imprimir_receitas(receitas)
+		elsif(opcao == BUSCAR_RECEITAS)
+			buscar_receitas(receitas)
 		elsif(opcao == SAIR)
 			break
 		else	
