@@ -4,8 +4,6 @@ INSERIR_RECEITA = 1
 VISUALIZAR_RECEITAS = 2
 BUSCAR_RECEITAS = 3
 SAIR = 4
-
-
 	def bem_vindo()
 		puts "Bem vindo ao cookbook, sua rede social de receitas!"
 	end
